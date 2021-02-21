@@ -9,7 +9,8 @@ public class UserVo {
 	private String userName;
 	private String password;
 	private String joinDate;
-	
+	private String blogTitle;
+	private String logoFile;
 	
 	
 	
@@ -17,17 +18,16 @@ public class UserVo {
 	public UserVo() {
 	}
 
-
-	public UserVo(int userNo, String id, String userName, String password, String joinDate) {
+	public UserVo(int userNo, String id, String userName, String password, String joinDate, String blogTitle,
+			String logoFile) {
 		this.userNo = userNo;
 		this.id = id;
 		this.userName = userName;
 		this.password = password;
 		this.joinDate = joinDate;
+		this.blogTitle = blogTitle;
+		this.logoFile = logoFile;
 	}
-
-
-
 
 
 	public int getUserNo() {
@@ -79,13 +79,29 @@ public class UserVo {
 		this.joinDate = joinDate;
 	}
 
+	
+	public String getBlogTitle() {
+		return blogTitle;
+	}
+
+	public void setBlogTitle(String blogTitle) {
+		this.blogTitle = blogTitle;
+	}
+
+	public String getLogoFile() {
+		return logoFile;
+	}
+
+	public void setLogoFile(String logoFile) {
+		this.logoFile = logoFile;
+	}
 
 	
 	
 	@Override
 	public String toString() {
 		return "UserVo [userNo=" + userNo + ", id=" + id + ", userName=" + userName + ", password=" + password
-				+ ", joinDate=" + joinDate + "]";
+				+ ", joinDate=" + joinDate + ", blogTitle=" + blogTitle + ", logoFile=" + logoFile + "]";
 	}
 	
 	

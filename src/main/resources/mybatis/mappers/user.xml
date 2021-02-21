@@ -16,7 +16,7 @@
 	</select>
 	
 	<!-- 회원가입 -->
-	<insert id="insertUser">
+	<insert id="insertUser" parameterType="com.javaex.vo.UserVo">
 		<![CDATA[
 			insert into users
 			values(
@@ -25,6 +25,18 @@
 			    #{userName},
 			    #{password},
 			    sysdate
+			)
+		]]>
+	</insert>
+	
+	<!-- blog.xml을 생성했다가 insert 만 사용이 돼서 삭제 회원가입을 하면 블로그가 자동 생성되므로 user.xml에서 insert 처리 -->
+	<insert id="insertBlog" parameterType="com.javaex.vo.UserVo">
+		<![CDATA[
+			insert into blog
+			values(
+			    #{id},
+			    #{blogTitle},
+			    #{logoFile}
 			)
 		]]>
 	</insert>

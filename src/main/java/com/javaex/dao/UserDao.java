@@ -21,4 +21,14 @@ public class UserDao {
 	}
 	
 
+	
+	// 회원가입
+	public void insert(UserVo userVo) {
+		System.out.println("UserDao: " + userVo);
+		
+		sqlSession.insert("user.insertUser", userVo);
+		sqlSession.insert("user.insertBlog", userVo);
+		
+	}
+	
 }

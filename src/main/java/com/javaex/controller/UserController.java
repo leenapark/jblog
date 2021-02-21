@@ -46,10 +46,13 @@ public class UserController {
 	public String join(@ModelAttribute UserVo userVo) {
 		System.out.println("UserController join: " + userVo);
 		
+		userService.joinBlog(userVo);
+		System.out.println("등록 후: " + userVo);
 		
 		
-		return "";
+		return "/user/joinSuccess";
 	}
+	
 	
 	
 }
