@@ -29,7 +29,7 @@
 		]]>
 	</insert>
 	
-	<!-- blog.xml을 생성했다가 insert 만 사용이 돼서 삭제 회원가입을 하면 블로그가 자동 생성되므로 user.xml에서 insert 처리 -->
+	<!-- 블로그에서 필요한 정보가 users의 정보를 사용하고 있어서 user.xml를 이용 -->
 	<insert id="insertBlog" parameterType="com.javaex.vo.UserVo">
 		<![CDATA[
 			insert into blog
@@ -40,5 +40,29 @@
 			)
 		]]>
 	</insert>
+	
+	<!-- 로그인 -> 세션에 남길 정보 돌려주기 -->
+	<select id="selectLogin" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+			select  id,
+					userNo,
+        			userName
+			from users
+			where id = #{id}
+			and password = #{password}
+		]]>
+	</select>
+	
+	<!-- 블로그에 필요한 정보 -->
+	<select id="selectBlog" parameterType="String" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+			select  u.id,
+        			u.userName,
+        			b.logoFile
+			from users u, blog b
+			where u.id = b.id
+            and u.id = #{id}
+		]]>
+	</select>
 
 </mapper>
